@@ -1,12 +1,9 @@
 package P2Games;
 
-import java.util.ArrayList;
-
 public class Jogo {
 	private String nomeJogo, tipoJogo;
 	private double precoJogo;
-	private int topScore = 0, vezesJogadas = 0, vezesZeradas= 0;
-	private ArrayList<String> estiloJogo;
+	private int topScore, vezesJogadas, vezesZeradas;
 	
 	// Construtor
 	public Jogo(String nomeJogo, double precoJogo) throws Exception {
@@ -15,6 +12,9 @@ public class Jogo {
 		
 		this.nomeJogo = nomeJogo;
 		this.precoJogo = precoJogo;
+		this.topScore = 0;
+		this.vezesJogadas = 0;
+		this.vezesZeradas = 0;
 	}
 	
 	
@@ -24,18 +24,11 @@ public class Jogo {
 		}
 	}
 
-
 	private void verificaNome(String nomeJogo) throws Exception {
 		if (nomeJogo == null || nomeJogo.trim().equals("")) {
 			throw new Exception("Nome do jogo é vazio ou nulo");
 		}
 	}
-
-	/**
-	 * 
-	 * @param score
-	 * @param zerou
-	 */
 
 	// Metodo que registra jogatina e armazena caso seja o top score
 	public void registraJogada(int score, boolean zerou) {
@@ -43,8 +36,10 @@ public class Jogo {
 		if (score > this.topScore) {
 			this.topScore = score;
 		}
+		if (zerou) {
+			this.setVezesZeradas(this.getVezesZeradas() + 1);
+		}
 	}
-	
 	
 	// Setters
 	public void setTipoJogo(String tipo) {
@@ -55,11 +50,6 @@ public class Jogo {
 	}
 	public void setVezesZeradas(int zeradas) {
 		this.vezesZeradas = zeradas;
-	}
-	public void setEstiloJogo(String tipo) {
-		if (!this.estiloJogo.contains(tipo)) {
-			this.estiloJogo.add(tipo);
-		}
 	}
 	
 	// Getters
@@ -87,17 +77,11 @@ public class Jogo {
 		return vezesZeradas;
 	}
 	
-	public ArrayList<String> getEstiloJogo() {
-		return this.estiloJogo;
-	}
-
-	
 	@Override
 	public String toString() {
 		return "Jogo [nomeJogo=" + nomeJogo + ", tipoJogo=" + tipoJogo + ", precoJogo=" + precoJogo + ", topScore="
 				+ topScore + ", vezesJogadas=" + vezesJogadas + ", vezesZeradas=" + vezesZeradas + "]";
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -114,18 +98,12 @@ public class Jogo {
 		return result;
 	}
 
-
 	@Override
 	public boolean equals(Object obj) {
-		if (!(obj instanceof Jogo)) {
-			return false;
-		}
-		String newObj = (String) obj;
-		if (this.nomeJogo.equals(newObj)) {
-			return true;
+		if (obj instanceof Jogo) {
+			Jogo novojogo = (Jogo) obj;
+			return this.getNomeJogo().equals(novojogo.getNomeJogo());
 		}
 		return false;
 	}
-	
-	
 }
