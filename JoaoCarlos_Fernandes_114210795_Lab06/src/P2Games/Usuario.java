@@ -6,20 +6,20 @@ public abstract class Usuario {
 	private String nome, login;
 	private ArrayList<Jogo> meusJogos;
 	private double dinheiroCaixa;
-	private Jogo jogo;
+	private int x2p;
 	
 	public Usuario(String nome,String login, ArrayList<Jogo> jogos) {
 		
 		this.nome = nome; 
 		this.login = login; 
 		this.meusJogos = new ArrayList<Jogo>(jogos);
-	
+		this.x2p= 0;
 	}
 	
-	public void CompraJogos(Jogo novoJogo) {
-		if (this.dinheiroCaixa >= novoJogo.getPrecoJogo()) {
-			this.setDinheiroCaixa(this.dinheiroCaixa - (novoJogo.getPrecoJogo() * 0.9));
-		}
+	public abstract void CompraJogos(Jogo novoJogo); 
+	
+	public void registraJogada(Jogo nomeDoJogo, int score, boolean zerou) {
+		nomeDoJogo.registraJogada(score, zerou);
 	}
 
 	public double getDinheiroCaixa() {
@@ -42,5 +42,11 @@ public abstract class Usuario {
 		this.dinheiroCaixa = dinheiro;
 	}
 	
+	public int getX2P() {
+		return this.x2p;
+	}
 	
+	public void setX2P(int experience) {
+		this.x2p = experience;
+	}
 }

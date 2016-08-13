@@ -10,12 +10,9 @@ public class Noob extends Usuario{
 
 	@Override
 	public void CompraJogos(Jogo novoJogo) {
-		
-		
-		
 		if (super.getDinheiroCaixa() >= novoJogo.getPrecoJogo()) {
-			
-			}
+			super.setX2P((int) (10 * novoJogo.getPrecoJogo()));
+			super.setDinheiroCaixa(super.getDinheiroCaixa() - ((novoJogo.getPrecoJogo() * 10) / 100));
 		}
-	
+	}
 }

@@ -1,22 +1,22 @@
 package P2Games;
 
-public class Jogo {
-	private String nomeJogo, tipoJogo;
+public abstract class Jogo {
+	private String nomeJogo;
 	private double precoJogo;
 	private int topScore, vezesJogadas, vezesZeradas;
+	public Usuario usuario;
 	
 	// Construtor
 	public Jogo(String nomeJogo, double precoJogo) throws Exception {
 		verificaNome(nomeJogo);
 		verificaPreco(precoJogo);
 		
-		this.nomeJogo = nomeJogo;
-		this.precoJogo = precoJogo;
-		this.topScore = 0;
-		this.vezesJogadas = 0;
-		this.vezesZeradas = 0;
+		this.setNomeJogo(nomeJogo);
+		this.setPrecoJogo(precoJogo);;
+		this.setTopScore(0);
+		this.setVezesJogadas(0);
+		this.setVezesZeradas(0);
 	}
-	
 	
 	private void verificaPreco(double precoJogo) throws Exception {
 		if (precoJogo <= 0) {
@@ -31,20 +31,21 @@ public class Jogo {
 	}
 
 	// Metodo que registra jogatina e armazena caso seja o top score
-	public void registraJogada(int score, boolean zerou) {
-		
-		if (score > this.topScore) {
-			this.topScore = score;
-		}
-		if (zerou) {
-			this.setVezesZeradas(this.getVezesZeradas() + 1);
-		}
+	public abstract void registraJogada(int score, boolean zerou);
+	
+	public void setNomeJogo(String nomeJogo) {
+		this.nomeJogo = nomeJogo;
 	}
 	
-	// Setters
-	public void setTipoJogo(String tipo) {
-		this.tipoJogo = tipo;
+	public void setPrecoJogo(double precoJogo) {
+		this.precoJogo = precoJogo;
 	}
+
+
+	public void setTopScore(int topScore) {
+		this.topScore = topScore;
+	}
+	
 	public void setVezesJogadas(int vezes) {
 		this.vezesJogadas = vezes;
 	}
@@ -52,13 +53,8 @@ public class Jogo {
 		this.vezesZeradas = zeradas;
 	}
 	
-	// Getters
 	public String getNomeJogo() {
 		return nomeJogo;
-	}
-
-	public String getTipoJogo() {
-		return tipoJogo;
 	}
 
 	public double getPrecoJogo() {
@@ -79,7 +75,7 @@ public class Jogo {
 	
 	@Override
 	public String toString() {
-		return "Jogo [nomeJogo=" + nomeJogo + ", tipoJogo=" + tipoJogo + ", precoJogo=" + precoJogo + ", topScore="
+		return "Jogo [nomeJogo=" + nomeJogo + ", precoJogo=" + precoJogo + ", topScore="
 				+ topScore + ", vezesJogadas=" + vezesJogadas + ", vezesZeradas=" + vezesZeradas + "]";
 	}
 
@@ -91,7 +87,6 @@ public class Jogo {
 		long temp;
 		temp = Double.doubleToLongBits(precoJogo);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + ((tipoJogo == null) ? 0 : tipoJogo.hashCode());
 		result = prime * result + topScore;
 		result = prime * result + vezesJogadas;
 		result = prime * result + vezesZeradas;
