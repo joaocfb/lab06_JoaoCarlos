@@ -20,13 +20,13 @@ public abstract class Jogo {
 	
 	private void verificaPreco(double precoJogo) throws Exception {
 		if (precoJogo <= 0) {
-			throw new Exception("Preço não pode ser menor que 0");
+			throw new Exception("Preco nao pode ser menor que 0.");
 		}
 	}
 
 	private void verificaNome(String nomeJogo) throws Exception {
 		if (nomeJogo == null || nomeJogo.trim().equals("")) {
-			throw new Exception("Nome do jogo é vazio ou nulo");
+			throw new Exception("Nome do jogo nao pode ser vazio ou nulo.");
 		}
 	}
 
