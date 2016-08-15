@@ -12,7 +12,7 @@ public class Veterano extends Usuario{
 	@Override
 	public void CompraJogos(Jogo novoJogo) {
 		if (super.getDinheiroCaixa() >= novoJogo.getPrecoJogo()) {
-			super.setX2P((int) (15 * novoJogo.getPrecoJogo()));
+			super.setX2P(super.getX2P() + (int) (15 * novoJogo.getPrecoJogo()));
 			super.setDinheiroCaixa(super.getDinheiroCaixa() - ((novoJogo.getPrecoJogo() * 20) / 100));
 		}
 	}
