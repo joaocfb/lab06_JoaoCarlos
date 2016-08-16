@@ -2,10 +2,10 @@ package P2Games;
 
 import java.util.ArrayList;
 
-public class FaÃ§ade {
+public class Façade {
 	private ArrayList<Usuario> usuarios;
 	
-	public FaÃ§ade() {
+	public Façade() {
 		this.usuarios = new ArrayList<Usuario>();
 	}
 
@@ -55,7 +55,7 @@ public class FaÃ§ade {
 				ex.append("==> Zerou " + jogo.getVezesZeradas() + "vez(es)");
 				ex.append("==> Maior Score: " + jogo.getTopScore() + "/n");
 			}
-			ex.append("Total de preÃ§o dos jogos: R$ " + precototal + "/n");
+			ex.append("Total de preço dos jogos: R$ " + precototal + "/n");
 			ex.append("/n--------------------------------------------");
 		}
 		return ex.toString();
