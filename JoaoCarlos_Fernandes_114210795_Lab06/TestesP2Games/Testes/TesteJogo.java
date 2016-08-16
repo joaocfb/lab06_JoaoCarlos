@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 /**
- * @author Melissa
+ * @author Joao Carlos Fernandes Bernardo
  *
  */
 public class TesteJogo {

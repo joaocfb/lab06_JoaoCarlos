@@ -1,4 +1,8 @@
 package P2Games;
+/**
+ * @author Joao Carlos Fernandes. 114210795.
+ */
+
 
 public abstract class Jogo {
 	private String nomeJogo;
@@ -6,7 +10,15 @@ public abstract class Jogo {
 	private int topScore, vezesJogadas, vezesZeradas;
 	public Usuario usuario;
 	
-	// Construtor
+	
+	/**
+	 * Construtor da classe Jogo
+	 * @param nomeJogo
+	 * @param precoJogo
+	 * @throws Exception
+	 */
+	
+	
 	public Jogo(String nomeJogo, double precoJogo) throws Exception {
 		verificaNome(nomeJogo);
 		verificaPreco(precoJogo);
@@ -18,20 +30,49 @@ public abstract class Jogo {
 		this.setVezesZeradas(0);
 	}
 	
+	
+	/**
+	 * Metodo de verificação se precoJogo é valido
+	 * @param precoJogo
+	 * @throws Exception
+	 */
+	
+	
 	private void verificaPreco(double precoJogo) throws Exception {
 		if (precoJogo <= 0) {
 			throw new Exception("Preco nao pode ser menor que 0.");
 		}
 	}
-
+	
+	
+	/**
+	 * Metodo de verificação se nome é válido
+	 * @param nomeJogo
+	 * @throws Exception
+	 */
+	
+	
 	private void verificaNome(String nomeJogo) throws Exception {
 		if (nomeJogo == null || nomeJogo.trim().equals("")) {
 			throw new Exception("Nome do jogo nao pode ser vazio ou nulo.");
 		}
 	}
 
-	// Metodo que registra jogatina e armazena caso seja o top score
+	
+	/**
+	 * Metodo que registra jogatina e armazena caso seja o top score
+	 * @param score
+	 * @param zerou
+	 */
+	
+	
 	public abstract void registraJogada(int score, boolean zerou);
+	
+	
+	/**
+	 * Setters
+	 */
+	
 	
 	public void setNomeJogo(String nomeJogo) {
 		this.nomeJogo = nomeJogo;
@@ -40,7 +81,6 @@ public abstract class Jogo {
 	public void setPrecoJogo(double precoJogo) {
 		this.precoJogo = precoJogo;
 	}
-
 
 	public void setTopScore(int topScore) {
 		this.topScore = topScore;
@@ -52,6 +92,12 @@ public abstract class Jogo {
 	public void setVezesZeradas(int zeradas) {
 		this.vezesZeradas = zeradas;
 	}
+
+	
+	/**
+	 * Getters 
+	 */
+	
 	
 	public String getNomeJogo() {
 		return nomeJogo;
@@ -73,12 +119,25 @@ public abstract class Jogo {
 		return vezesZeradas;
 	}
 	
+	
+	/**
+	 * Override do toString de Java
+	 * @param toString()
+	 */
+	
 	@Override
 	public String toString() {
 		return "Jogo [nomeJogo=" + nomeJogo + ", precoJogo=" + precoJogo + ", topScore="
 				+ topScore + ", vezesJogadas=" + vezesJogadas + ", vezesZeradas=" + vezesZeradas + "]";
 	}
 
+	
+	/**
+	 * Override do hashcode de Java
+	 * @param hashcode 
+	 */
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -93,6 +152,12 @@ public abstract class Jogo {
 		return result;
 	}
 
+	
+	/**
+	 * Override do equals de Java
+	 */
+	
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof Jogo) {

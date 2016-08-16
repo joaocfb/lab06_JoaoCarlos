@@ -1,11 +1,21 @@
 package P2Games;
-
+/**
+ * 
+ * @author Joao Carlos Fernandes Bernardo. 114210795.
+ *
+ */
 public class RPG extends Jogo {
 
 	public RPG(String nomeJogo, double precoJogo) throws Exception {
 		super(nomeJogo, precoJogo);
 	}
 
+	
+	/**
+	 * Override do metodo abstrato registraJogada da classe Jogo
+	 */
+	
+	
 	@Override
 	public void registraJogada(int score, boolean zerou) {
 		

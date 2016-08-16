@@ -1,11 +1,26 @@
 package P2Games;
-
+/**
+ * @author Joao Carlos Fernandes Bernardo
+ */
 public class Plataforma extends Jogo {
 
+	
+/**
+ * Construtor da SubClasse Plataforma
+ * @param nomeJogo
+ * @param precoJogo
+ * @throws Exception
+ */
+	
+	
 	public Plataforma(String nomeJogo, double precoJogo) throws Exception {
 		super(nomeJogo, precoJogo);
 	}
 
+	
+	/**
+	 * Override do metodo abstrato registraJogada da classe Jogo
+	 */
 	@Override
 	public void registraJogada(int score, boolean zerou) {
 		 

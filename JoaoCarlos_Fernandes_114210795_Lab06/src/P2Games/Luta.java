@@ -1,11 +1,28 @@
 package P2Games;
 
-public class Luta extends Jogo {
+/**
+ * @author Joao Carlos Fernandes Bernardo. 114210795.
+ */
 
+public class Luta extends Jogo {
+	
+	
+	/**
+	 * Construtor da SubClasse Luta
+	 * @param nomeJogo
+	 * @param precoJogo
+	 * @throws Exception
+	 */
+	
+	
 	public Luta(String nomeJogo, double precoJogo) throws Exception {
 		super(nomeJogo, precoJogo);
 	}
 
+	/**
+	 * Override do metodo abstrato registraJogada da classe Jogo
+	 */
+	
 	@Override
 	public void registraJogada(int score, boolean zerou) {
 		
