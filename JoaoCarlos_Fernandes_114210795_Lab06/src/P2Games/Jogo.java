@@ -8,7 +8,7 @@ public abstract class Jogo {
 	private String nomeJogo;
 	private double precoJogo;
 	private int topScore, vezesJogadas, vezesZeradas;
-	public Usuario usuario;
+	protected Usuario usuario;
 	
 	
 	/**
@@ -20,6 +20,7 @@ public abstract class Jogo {
 	
 	
 	public Jogo(String nomeJogo, double precoJogo) throws Exception {
+		
 		verificaNome(nomeJogo);
 		verificaPreco(precoJogo);
 		
@@ -75,24 +76,44 @@ public abstract class Jogo {
 	
 	
 	public void setNomeJogo(String nomeJogo) {
+		this.defineNome(nomeJogo);
+	}
+	
+	private void defineNome(String nomeJogo) {
 		this.nomeJogo = nomeJogo;
 	}
 	
 	public void setPrecoJogo(double precoJogo) {
+		this.definePrecoJogo(precoJogo);
+	}
+	
+	private void definePrecoJogo(double precoJogo) {
 		this.precoJogo = precoJogo;
 	}
 
 	public void setTopScore(int topScore) {
+		this.defineTopScore(topScore);
+	}
+	
+	private void defineTopScore(int topScore) {
 		this.topScore = topScore;
 	}
 	
 	public void setVezesJogadas(int vezes) {
+		this.defineVezesJogadas(vezes);;
+	}
+	
+	private void defineVezesJogadas(int vezes) {
 		this.vezesJogadas = vezes;
 	}
+	
 	public void setVezesZeradas(int zeradas) {
-		this.vezesZeradas = zeradas;
+		this.defineVezesZeradas(zeradas);
 	}
 
+	private void defineVezesZeradas(int zeradas) {
+		this.vezesZeradas = zeradas;
+	}
 	
 	/**
 	 * Getters 
