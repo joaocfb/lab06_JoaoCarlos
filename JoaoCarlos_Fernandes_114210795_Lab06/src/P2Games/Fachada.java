@@ -10,6 +10,7 @@ public class Fachada {
 	private ArrayList<Usuario> usuarios;
 	
 	
+	
 	/**
 	 * Construtor da classe Fachada
 	 */
@@ -83,12 +84,21 @@ public class Fachada {
 	public void upgrade(String login) throws Exception {
 		testaTipo(login);
 		testax2p(login);
-		int i = this.usuarios.indexOf(login);
-		Usuario usuario = new Veterano(this.usuarios.get(i).getNome(),this.usuarios.get(i).getLogin(), this.usuarios.get(i).getMeusJogos());
-		usuario.setX2P(this.usuarios.get(i).getX2P());
-		usuario.setDinheiroCaixa(this.usuarios.get(i).getDinheiroCaixa());
-		this.usuarios.remove(i);
-		this.usuarios.add(usuario);
+		Usuario usuario = this.retornaUsuario(login);
+		Usuario newUsuario = new Veterano(usuario.getNome(), usuario.getLogin(), usuario.getMeusJogos());
+		newUsuario.setDinheiroCaixa(usuario.getDinheiroCaixa()); 
+		newUsuario.setX2P(usuario.getX2P());
+		
+	}
+	
+	
+	private Usuario retornaUsuario(String login) {
+		for (Usuario usuario : usuarios) {
+			if (usuario.getLogin().equals(login)) {
+				return usuario;
+			}
+		}
+		return null;
 	}
 	
 	

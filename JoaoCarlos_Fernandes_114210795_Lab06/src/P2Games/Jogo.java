@@ -21,43 +21,14 @@ public abstract class Jogo {
 	
 	public Jogo(String nomeJogo, double precoJogo) throws Exception {
 		
-		verificaNome(nomeJogo);
-		verificaPreco(precoJogo);
-		
 		this.setNomeJogo(nomeJogo);
 		this.setPrecoJogo(precoJogo);;
-		this.setTopScore(0);
-		this.setVezesJogadas(0);
-		this.setVezesZeradas(0);
+		this.topScore = 0;
+		this.vezesJogadas = 0;
+		this.vezesZeradas = 0;
 	}
 	
 	
-	/**
-	 * Metodo de verificação se precoJogo é valido
-	 * @param precoJogo
-	 * @throws Exception
-	 */
-	
-	
-	private void verificaPreco(double precoJogo) throws Exception {
-		if (precoJogo <= 0) {
-			throw new Exception("Preco nao pode ser menor que 0.");
-		}
-	}
-	
-	
-	/**
-	 * Metodo de verificação se nome é válido
-	 * @param nomeJogo
-	 * @throws Exception
-	 */
-	
-	
-	private void verificaNome(String nomeJogo) throws Exception {
-		if (nomeJogo == null || nomeJogo.trim().equals("")) {
-			throw new Exception("Nome do jogo nao pode ser vazio ou nulo.");
-		}
-	}
 
 	
 	/**
@@ -73,10 +44,14 @@ public abstract class Jogo {
 	
 	/**
 	 * Setters
+	 * @throws Exception 
 	 */
 	
 	
-	public void setNomeJogo(String nomeJogo) {
+	public void setNomeJogo(String nomeJogo) throws Exception {
+		if (nomeJogo == null || nomeJogo.trim().equals("")) {
+			throw new Exception("Nome do jogo nao pode ser vazio ou nulo.");
+		}
 		this.defineNome(nomeJogo);
 	}
 	
@@ -84,7 +59,10 @@ public abstract class Jogo {
 		this.nomeJogo = nomeJogo;
 	}
 	
-	public void setPrecoJogo(double precoJogo) {
+	public void setPrecoJogo(double precoJogo) throws Exception {
+		if (precoJogo <= 0) {
+			throw new Exception("Preco nao pode ser menor que 0.");
+		}
 		this.definePrecoJogo(precoJogo);
 	}
 	
@@ -92,7 +70,10 @@ public abstract class Jogo {
 		this.precoJogo = precoJogo;
 	}
 
-	public void setTopScore(int topScore) {
+	public void setTopScore(int topScore) throws Exception {
+		if (topScore <= 0) {
+			throw new Exception("Score não pode ser menor ou igual a 0");
+		}
 		this.defineTopScore(topScore);
 	}
 	
@@ -100,7 +81,10 @@ public abstract class Jogo {
 		this.topScore = topScore;
 	}
 	
-	public void setVezesJogadas(int vezes) {
+	public void setVezesJogadas(int vezes) throws Exception {
+		if (vezes <= 0) {
+			throw new Exception("Nao e possivel por um numero menor ou igual a 0");
+		}
 		this.defineVezesJogadas(vezes);;
 	}
 	
@@ -108,7 +92,10 @@ public abstract class Jogo {
 		this.vezesJogadas = vezes;
 	}
 	
-	public void setVezesZeradas(int zeradas) {
+	public void setVezesZeradas(int zeradas) throws Exception {
+		if (zeradas <= 0) {
+			throw new Exception("Nao e possivel por um numero menor ou igual a 0");
+		}
 		this.defineVezesZeradas(zeradas);
 	}
 

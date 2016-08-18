@@ -41,8 +41,7 @@ public class TesteUsuario {
 		assertTrue(maria.compraJogos(jogo2));
 		assertFalse(maria.compraJogos(jogo2));
 		
-		assertTrue(maria.existeJogo(jogo2));
-		assertFalse(kleber.existeJogo(jogo1));
+	
 	}
 	
 	@Test

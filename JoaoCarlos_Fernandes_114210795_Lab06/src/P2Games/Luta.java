@@ -26,9 +26,9 @@ public class Luta extends Jogo {
 	
 	@Override
 	public void registraJogada(int score, boolean zerou) throws Exception {
-		
+		this.verificaScore(score);
 		if (score > super.getTopScore()) {
-			super.usuario.setX2P(super.usuario.getX2P() + (score/1000));
+			//super.usuario.setX2P(super.usuario.getX2P() + (score/1000));
 			super.setTopScore(score);
 		}
 		if (zerou) {
@@ -36,6 +36,12 @@ public class Luta extends Jogo {
 		}
 		super.setVezesJogadas(super.getVezesJogadas() + 1);
 		
+	}
+
+	private void verificaScore(int score) throws Exception {
+		if (score <= 0) {
+			throw new Exception("Score não pode ser menor ou igual a 0");
+		}
 	}
 
 }
