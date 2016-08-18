@@ -20,9 +20,10 @@ public class Plataforma extends Jogo {
 	
 	/**
 	 * Override do metodo abstrato registraJogada da classe Jogo
+	 * @throws Exception 
 	 */
 	@Override
-	public void registraJogada(int score, boolean zerou) {
+	public void registraJogada(int score, boolean zerou) throws Exception {
 		 
 		if (score > super.getTopScore()) {
 			super.setTopScore(score);

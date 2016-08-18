@@ -64,10 +64,11 @@ public abstract class Jogo {
 	 * Metodo que registra jogatina e armazena caso seja o top score
 	 * @param score
 	 * @param zerou
+	 * @throws Exception 
 	 */
 	
 	
-	public abstract void registraJogada(int score, boolean zerou);
+	public abstract void registraJogada(int score, boolean zerou) throws Exception;
 	
 	
 	/**
@@ -148,8 +149,12 @@ public abstract class Jogo {
 	
 	@Override
 	public String toString() {
-		return "Jogo [nomeJogo=" + nomeJogo + ", precoJogo=" + precoJogo + ", topScore="
-				+ topScore + ", vezesJogadas=" + vezesJogadas + ", vezesZeradas=" + vezesZeradas + "]";
+		StringBuilder ex = new StringBuilder();
+		ex.append("+ " + this.getNomeJogo() + " - " + this.getClass().getSimpleName() + ":\n");
+		ex.append("==> Jogou " + this.getVezesJogadas() + "vez(es)\n");
+		ex.append("==> Zerou " + this.getVezesZeradas() + "vez(es)\n");
+		ex.append("==> Maior Score: " + this.getTopScore() + "\n");
+		return ex.toString();
 	}
 
 	
@@ -176,6 +181,7 @@ public abstract class Jogo {
 	
 	/**
 	 * Override do equals de Java
+	 * @param equals
 	 */
 	
 	

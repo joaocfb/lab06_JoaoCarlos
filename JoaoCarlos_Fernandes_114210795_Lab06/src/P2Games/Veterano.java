@@ -12,10 +12,11 @@ public class Veterano extends Usuario{
 	 * @param nome
 	 * @param login
 	 * @param jogos
+	 * @throws Exception 
 	 */
 	
 	
-	public Veterano(String nome, String login, ArrayList<Jogo> jogos) {
+	public Veterano(String nome, String login, ArrayList<Jogo> jogos) throws Exception {
 		super(nome, login, jogos);
 		super.setX2P(1000);
 	}
@@ -23,9 +24,10 @@ public class Veterano extends Usuario{
 	
 	/**
 	 * Override do metodo abstrato compraJogos da classe Usuario
+	 * @throws Exception 
 	 */
 	@Override
-	public void compraJogos(Jogo novoJogo) {
+	public void compraJogos(Jogo novoJogo) throws Exception {
 		if (super.getDinheiroCaixa() >= novoJogo.getPrecoJogo()) {
 			super.setX2P(super.getX2P() + (int) (15 * novoJogo.getPrecoJogo()));
 			super.setDinheiroCaixa(super.getDinheiroCaixa() - ((novoJogo.getPrecoJogo() * 20) / 100));
