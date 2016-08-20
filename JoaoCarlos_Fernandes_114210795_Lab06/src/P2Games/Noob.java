@@ -23,15 +23,20 @@ public class Noob extends Usuario{
 	
 	/**
 	 * Override do metodo abstrato compraJogos da classe Usuario
+	 * @return 
 	 * @throws Exception 
 	 */
 	
 	
 	@Override
-	public void compraJogos(Jogo novoJogo) throws Exception {
-		if (super.getDinheiroCaixa() >= novoJogo.getPrecoJogo()) {
-			super.setX2P(super.getX2P() + (int) (10 * novoJogo.getPrecoJogo()));
-			super.setDinheiroCaixa(super.getDinheiroCaixa() - ((novoJogo.getPrecoJogo() * 10) / 100));
+	public boolean compraJogos(Jogo novoJogo) throws Exception {
+		if (!super.getMeusJogos().contains(novoJogo)) {
+			if (super.getDinheiroCaixa() >= novoJogo.getPrecoJogo()) {
+				super.setX2P(super.getX2P() + (int) (10 * novoJogo.getPrecoJogo()));
+				super.setDinheiroCaixa(super.getDinheiroCaixa() - ((novoJogo.getPrecoJogo() * 10) / 100));
+				return true;
+			}
 		}
+		return false;
 	}
 }

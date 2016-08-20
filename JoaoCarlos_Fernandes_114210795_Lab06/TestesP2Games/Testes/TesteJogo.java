@@ -43,7 +43,7 @@ public class TesteJogo {
 		assertEquals("Mortal Kombat", jogo2.getNomeJogo());
 		assertNotEquals("Sonic Origins", jogo3.getNomeJogo());
 		assertEquals("Plataforma", jogo3.getClass().getSimpleName());
-		assertNotEquals("Luta", jogo1.getClscoreass().getSimpleName());
+		assertNotEquals("Luta", jogo1.getClass().getSimpleName());
 		assertEquals("RPG", jogo9.getClass().getSimpleName());
 		
 		//testa nome vazio

@@ -42,7 +42,7 @@ public abstract class Usuario {
 	 */
 	
 	
-	public abstract void compraJogos(Jogo novoJogo) throws Exception; 
+	public abstract boolean compraJogos(Jogo novoJogo) throws Exception; 
 	
 	
 	/**
@@ -117,7 +117,7 @@ public abstract class Usuario {
 	
 	public void setX2P(int experience) throws Exception {
 		if (experience < 0) {
-			throw new Exception("Não é possivel adicionar X2P menor que 0");
+			throw new Exception("Naoo e possivel adicionar X2P menor que 0");
 		}
 		this.defineX2P(experience);
 	}
