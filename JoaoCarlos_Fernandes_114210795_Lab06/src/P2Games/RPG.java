@@ -13,6 +13,7 @@ public class RPG extends Jogo {
 	
 	/**
 	 * Override do metodo abstrato registraJogada da classe Jogo
+	 * @return 
 	 * @throws Exception 
 	 */
 	
@@ -23,12 +24,12 @@ public class RPG extends Jogo {
 		
 		if (score > super.getTopScore()) {
 			super.setTopScore(score);
-		}
+		} 
 		if (zerou) {
 			super.setVezesZeradas(super.getVezesZeradas() + 1);
-		}
+		} 
 		super.setVezesJogadas(super.getVezesJogadas() + 1);
-		//super.usuario.setX2P(super.usuario.getX2P() + 10);
+		super.usuario.setX2P(super.usuario.getX2P() + 10);
 	}
 
 	private void verificaScore(int score) throws Exception {

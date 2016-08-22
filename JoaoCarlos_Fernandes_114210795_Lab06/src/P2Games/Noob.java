@@ -33,7 +33,8 @@ public class Noob extends Usuario{
 		if (!super.getMeusJogos().contains(novoJogo)) {
 			if (super.getDinheiroCaixa() >= novoJogo.getPrecoJogo()) {
 				super.setX2P(super.getX2P() + (int) (10 * novoJogo.getPrecoJogo()));
-				super.setDinheiroCaixa(super.getDinheiroCaixa() - ((novoJogo.getPrecoJogo() * 10) / 100));
+				double desconto = ((novoJogo.getPrecoJogo() * 10) / 100);
+				super.setDinheiroCaixa(super.getDinheiroCaixa() - (novoJogo.getPrecoJogo() * 10) - desconto);
 				return true;
 			}
 		}

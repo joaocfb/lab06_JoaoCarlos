@@ -35,6 +35,7 @@ public abstract class Jogo {
 	 * Metodo que registra jogatina e armazena caso seja o top score
 	 * @param score
 	 * @param zerou
+	 * @return 
 	 * @throws Exception 
 	 */
 	

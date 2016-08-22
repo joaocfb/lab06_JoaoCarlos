@@ -4,18 +4,22 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+
+import P2Games.Jogo;
 
 public class TestesUsuario {
 	private P2Games.Usuario joao;
 	private P2Games.Usuario pedro;
+	private Jogo jogo1, jogo2;
 	
 	
 	@Test
 	public void criaUsuario() throws Exception {
 		joao = new P2Games.Veterano("joao", "joaocfb", new ArrayList<P2Games.Jogo>());
 		joao.setDinheiroCaixa(500.0);
-		assertEquals(500.0, joao.getDinheiroCaixa());
 		assertEquals(1000, joao.getX2P());
 		
 		pedro = new P2Games.Noob("pedro", "pedro_s12", new ArrayList<P2Games.Jogo>());
@@ -33,72 +37,57 @@ public class TestesUsuario {
 		assertTrue(joao.compraJogos(jogo1));
 		assertFalse(joao.compraJogos(jogo1));
 		assertEquals(4000, joao.getX2P());
-		assertEquals();
+		assertEquals("Veterano", joao.getClass().getSimpleName());
+		assertEquals(340.0, joao.getDinheiroCaixa());
 		
 		assertTrue(pedro.compraJogos(jogo2));
 		assertFalse(pedro.compraJogos(jogo2));
 		assertEquals(500, pedro.getX2P());
+		assertEquals("Noob", pedro.getClass().getSimpleName());
+		assertEquals(55.0, pedro.getDinheiroCaixa());
 	
 	}
-
+/*	
+	@Before
+	public void registrandoJogada() throws Exception {
+		joao.registraJogada(jogo1, 5000, true);
+		joao.registraJogada(jogo1, 3200, false);
+		pedro.registraJogada(jogo2, 250, false);
+		pedro.registraJogada(jogo2, 7500, true);
+		
+	}
+	
 	@Test
-	public void testRegistraJogada() {
-		fail("Not yet implemented");
+	public void testRegistraJogada() throws Exception {
+		assertEquals(2, jogo1.getVezesJogadas());
+		assertEquals(1, jogo2.getVezesZeradas());
+		assertEquals(4020, joao.getX2P());
+		assertEquals(507, pedro.getX2P());
+		
+		try {
+			pedro.registraJogada(jogo2, -150, true);
+			fail("Deveria lancar excecao");
+		} catch (Exception e) {
+			assertEquals("Score não pode ser menor ou igual a 0", e.getMessage());
+		}
+		
+		try {
+			joao.registraJogada(jogo1, 0, true);
+		} catch (Exception e) {
+			assertEquals("Score não pode ser menor ou igual a 0", e.getMessage());
+		}
+		
 	}
 
-	@Test
-	public void testGetX2P() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetDinheiroCaixa() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetNome() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetLogin() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetMeusJogos() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetNomeUsuario() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetLoginUsuario() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetDinheiroCaixa() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetX2P() {
-		fail("Not yet implemented");
-	}
-
+	
 	@Test
 	public void testToString() {
-		fail("Not yet implemented");
-	}
+		assertEquals("joaocfb\n joao - Jogador Veterano"
+				,joao.toString());
+		
+		
+	}*/
 
-	@Test
-	public void testEqualsObject() {
-		fail("Not yet implemented");
-	}
+	
 
 }
