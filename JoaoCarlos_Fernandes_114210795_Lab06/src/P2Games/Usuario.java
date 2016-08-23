@@ -66,7 +66,7 @@ public abstract class Usuario {
 		return this.x2p;
 	}
 	public double getDinheiroCaixa() {
-		return dinheiroCaixa;
+		return this.dinheiroCaixa;
 	}
 	
 	public String getNome() {

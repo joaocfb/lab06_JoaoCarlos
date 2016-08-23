@@ -9,6 +9,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import P2Games.Jogo;
+import P2Games.Luta;
+import P2Games.Noob;
+import P2Games.RPG;
+import P2Games.Usuario;
+import P2Games.Veterano;
 
 public class TestesUsuario {
 	private P2Games.Usuario joao;
@@ -18,11 +23,11 @@ public class TestesUsuario {
 	
 	@Test
 	public void criaUsuario() throws Exception {
-		joao = new P2Games.Veterano("joao", "joaocfb", new ArrayList<P2Games.Jogo>());
+		joao = new Veterano("joao", "joaocfb",  new ArrayList<Jogo>());
 		joao.setDinheiroCaixa(500.0);
 		assertEquals(1000, joao.getX2P());
 		
-		pedro = new P2Games.Noob("pedro", "pedro_s12", new ArrayList<P2Games.Jogo>());
+		pedro = new Noob("pedro", "pedro_s12", new ArrayList<P2Games.Jogo>());
 		pedro.setDinheiroCaixa(100.0);
 		assertNotEquals(110.0, pedro.getDinheiroCaixa());
 		assertNotEquals(1000, pedro.getX2P());
@@ -31,11 +36,10 @@ public class TestesUsuario {
 	@Test
 	public void testCompraJogos() throws Exception {
 		
-		P2Games.Jogo jogo1 = new P2Games.RPG("Final Fantasy", 200.0);
-		P2Games.Jogo jogo2 = new P2Games.Luta("Street Fighter", 50.0);
+		jogo1 = new RPG("Final Fantasy", 200.0);
+		jogo2 = new Luta("Street Fighter", 50.0);
 		
 		assertTrue(joao.compraJogos(jogo1));
-		assertFalse(joao.compraJogos(jogo1));
 		assertEquals(4000, joao.getX2P());
 		assertEquals("Veterano", joao.getClass().getSimpleName());
 		assertEquals(340.0, joao.getDinheiroCaixa());
@@ -47,7 +51,7 @@ public class TestesUsuario {
 		assertEquals(55.0, pedro.getDinheiroCaixa());
 	
 	}
-/*	
+	
 	@Before
 	public void registrandoJogada() throws Exception {
 		joao.registraJogada(jogo1, 5000, true);
@@ -86,7 +90,7 @@ public class TestesUsuario {
 				,joao.toString());
 		
 		
-	}*/
+	}
 
 	
 
