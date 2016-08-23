@@ -42,8 +42,27 @@ public abstract class Usuario {
 	 */
 	
 	
-	public abstract boolean compraJogos(Jogo novoJogo) throws Exception; 
+	public void compraJogos(Jogo novoJogo) throws Exception {
+		verificaHaJogo(novoJogo);
+		verificaDinheiro(novoJogo);
+		this.setX2P(this.getX2P() + (int) (15 * novoJogo.getPrecoJogo()));
+		this.setDinheiroCaixa(this.getDinheiroCaixa() - (novoJogo.getPrecoJogo() - getDesconto(novoJogo)));
+	}
 	
+	protected abstract double getDesconto(Jogo novoJogo);
+
+
+	private void verificaHaJogo(Jogo novoJogo) throws Exception {
+			if (this.getMeusJogos().contains(novoJogo)) {
+				throw new Exception("O Usuario ja possui este jogo");
+			}
+	}
+	
+	private void verificaDinheiro(Jogo novoJogo) throws Exception {
+		if (this.getDinheiroCaixa() < novoJogo.getPrecoJogo()) {
+			throw new Exception("O Usuario nao possui dinheiro suficiente");
+		}
+	}
 	
 	/**
 	 * Metodo que chama o metodo registraJogada da classe Jogo

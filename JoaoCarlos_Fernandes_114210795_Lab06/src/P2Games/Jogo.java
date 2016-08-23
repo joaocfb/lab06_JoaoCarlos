@@ -33,15 +33,32 @@ public abstract class Jogo {
 	
 	/**
 	 * Metodo que registra jogatina e armazena caso seja o top score
-	 * @param score
-	 * @param zerou
-	 * @return 
+	 * @param int
+	 * @param boolean
+	 * @return int
 	 * @throws Exception 
 	 */
 	
 	
-	public abstract void registraJogada(int score, boolean zerou) throws Exception;
+	public int registraJogada(int score, boolean zerou) throws Exception {
+		this.verificaScore(score);
+		if (score > this.getTopScore()) {
+			this.setTopScore(score);
+		} 
+		if (zerou) {
+			this.setVezesZeradas(this.getVezesZeradas() + 1);
+		} 
+		this.setVezesJogadas(this.getVezesJogadas() + 1);
+		return this.getBonus(score);
+	}
 	
+	protected abstract int getBonus(int score);
+
+	private void verificaScore(int score) throws Exception {
+		if (score <= 0) {
+			throw new Exception("Score não pode ser menor ou igual a 0");
+		}
+	}
 	
 	/**
 	 * Setters

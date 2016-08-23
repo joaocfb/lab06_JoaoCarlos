@@ -27,16 +27,12 @@ public class Veterano extends Usuario{
 	 * @return 
 	 * @throws Exception 
 	 */
+
 	@Override
-	public boolean compraJogos(Jogo novoJogo) throws Exception {
-		if (!super.getMeusJogos().contains(novoJogo)) {
-			if (super.getDinheiroCaixa() >= novoJogo.getPrecoJogo()) {
-				super.setX2P(super.getX2P() + (int) (15 * novoJogo.getPrecoJogo()));
-				double desconto = ((novoJogo.getPrecoJogo() * 20) / 100);
-				super.setDinheiroCaixa(super.getDinheiroCaixa() - (novoJogo.getPrecoJogo() - desconto));
-				return true;
-			}
-		}
-		return false;
+	protected double getDesconto(Jogo novoJogo) {
+		return ((novoJogo.getPrecoJogo() * 20) / 100);
 	}
+
+
 }
+	
