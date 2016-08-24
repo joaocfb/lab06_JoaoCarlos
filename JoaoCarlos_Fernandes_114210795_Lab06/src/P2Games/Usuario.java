@@ -1,4 +1,4 @@
-
+/* 114210795 - Joao Carlos Fernandes Bernardo: LAB 06 - Turma 1 */
 package P2Games;
 
 import java.util.ArrayList;
@@ -32,7 +32,7 @@ public abstract class Usuario {
 		this.setNomeUsuario(nome);
 		this.setLoginUsuario(login);
 		this.meusJogos = new ArrayList<Jogo>(jogos);
-		this.x2p= 0;
+		
 	}
 
 
@@ -49,7 +49,8 @@ public abstract class Usuario {
 			}
 		}
 		verificaDinheiro(novoJogo);
-		this.setX2P(this.getX2P() + (int) (15 * novoJogo.getPrecoJogo()));
+		int x2pparcial = (int) (15 * novoJogo.getPrecoJogo());
+		this.setX2P(this.getX2P() + x2pparcial);
 		this.setDinheiroCaixa(this.getDinheiroCaixa() - (novoJogo.getPrecoJogo() - getDesconto(novoJogo)));
 	}
 	

@@ -1,6 +1,4 @@
-/**
- * 
- */
+/* 114210795 - Joao Carlos Fernandes Bernardo: LAB 06 - Turma 1 */
 package Testes;
 import static org.junit.Assert.*;
 
@@ -109,11 +107,10 @@ public class TesteJogo {
 			jogo9.registraJogada(-15, true);
 			fail("Deveria ter lancado excecao de score");
 		} catch (Exception e) {
-			assertEquals("Score não pode ser menor ou igual a 0", e.getMessage());
+			assertEquals("Score nao pode ser menor ou igual a 0", e.getMessage());
 		}
 		
-		
-		
 	}
+	
 	
 }

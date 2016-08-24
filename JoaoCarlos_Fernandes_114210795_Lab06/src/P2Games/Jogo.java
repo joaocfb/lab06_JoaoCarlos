@@ -1,3 +1,4 @@
+/* 114210795 - Joao Carlos Fernandes Bernardo: LAB 06 - Turma 1 */
 package P2Games;
 /**
  * @author Joao Carlos Fernandes. 114210795.
@@ -57,7 +58,7 @@ public abstract class Jogo {
 
 	private void verificaScore(int score) throws Exception {
 		if (score <= 0) {
-			throw new Exception("Score não pode ser menor ou igual a 0");
+			throw new Exception("Score nao pode ser menor ou igual a 0");
 		}
 	}
 	

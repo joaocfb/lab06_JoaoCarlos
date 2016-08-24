@@ -1,3 +1,4 @@
+/* 114210795 - Joao Carlos Fernandes Bernardo: LAB 06 - Turma 1 */
 package Testes;
 
 import static org.junit.Assert.*;
@@ -58,64 +59,63 @@ public class TestesUsuario {
 		assertEquals("Veterano", joao.getClass().getSimpleName());
 		assertEquals(340.0, joao.getDinheiroCaixa(), 0.0001);
 		
+		
 		try {
 			pedro.compraJogos(jogo2);
 		} catch (Exception e) {
-			fail("Deveria lancar excecao");
+			fail("Nao deveria lancar excecao");
 		}
-		
-		/*try {
-			pedro.compraJogos(jogo2);
-			fail("Deveria lancar excecao");
-		} catch (Exception e) {
-			assertEquals("O Usuario ja possui este jogo", e.getMessage());
-		}*/
+	
 		assertEquals(750, pedro.getX2P());
 		assertEquals("Noob", pedro.getClass().getSimpleName());
 		assertEquals(55.0, pedro.getDinheiroCaixa(), 0.00001);
 	
 	}
-	/*
-	@Before
-	public void registrandoJogada() throws Exception {
-		joao.registraJogada(jogo1, 5000, true);
-		joao.registraJogada(jogo1, 3200, false);
-		pedro.registraJogada(jogo2, 250, false);
-		pedro.registraJogada(jogo2, 7500, true);
-		
-	}
-	
+
 	@Test
 	public void testRegistraJogada() throws Exception {
+		
+		try {
+			joao.registraJogada(jogo1, 5000, true);
+		} catch (Exception e) {
+			fail("Nao deveria lancar excecao");
+		}
+		
+		try {
+			joao.registraJogada(jogo1, 3200, false);
+		} catch (Exception e) {
+			fail("Nao deveria lancar excecao");
+		}
+		
+		try {
+			pedro.registraJogada(jogo2, 250, false);
+		} catch (Exception e) {
+			fail("Nao deveria lancar excecao");
+		}
+		
+		try {
+			pedro.registraJogada(jogo2, 7500, true);
+		} catch (Exception e) {
+			fail("Nao deveria lancar excecao");
+		}
+		
 		assertEquals(2, jogo1.getVezesJogadas());
 		assertEquals(1, jogo2.getVezesZeradas());
-		assertEquals(4020, joao.getX2P());
-		assertEquals(507, pedro.getX2P());
+		assertEquals(1020, joao.getX2P());
+		assertEquals(7, pedro.getX2P());
 		
 		try {
 			pedro.registraJogada(jogo2, -150, true);
 			fail("Deveria lancar excecao");
 		} catch (Exception e) {
-			assertEquals("Score não pode ser menor ou igual a 0", e.getMessage());
+			assertEquals("Score nao pode ser menor ou igual a 0", e.getMessage());
 		}
 		
 		try {
 			joao.registraJogada(jogo1, 0, true);
 		} catch (Exception e) {
-			assertEquals("Score não pode ser menor ou igual a 0", e.getMessage());
+			assertEquals("Score nao pode ser menor ou igual a 0", e.getMessage());
 		}
 		
 	}
-
-	
-	@Test
-	public void testToString() {
-		assertEquals("joaocfb\n joao - Jogador Veterano"
-				,joao.toString());
-		
-		
-	}
-
-	
-*/
 }
