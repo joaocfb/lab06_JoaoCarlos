@@ -21,7 +21,7 @@ public class Plataforma extends Jogo {
 
 
 	@Override
-	protected int getBonus(int score) {
+	protected int getBonus() {
 		return 20;
 	}
 

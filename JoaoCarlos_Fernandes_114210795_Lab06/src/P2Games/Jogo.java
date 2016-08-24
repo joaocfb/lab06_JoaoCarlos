@@ -49,10 +49,11 @@ public abstract class Jogo {
 			this.setVezesZeradas(this.getVezesZeradas() + 1);
 		} 
 		this.setVezesJogadas(this.getVezesJogadas() + 1);
-		return this.getBonus(score);
+		return this.getBonus();
 	}
 	
-	protected abstract int getBonus(int score);
+	protected abstract int getBonus();
+	
 
 	private void verificaScore(int score) throws Exception {
 		if (score <= 0) {

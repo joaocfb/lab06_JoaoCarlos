@@ -22,8 +22,8 @@ public class Luta extends Jogo {
 	}
 
 	@Override
-	protected int getBonus(int score) {
-		return (score/1000);
+	protected int getBonus() {
+		return (super.getTopScore()/1000);
 	}
 
 

@@ -12,7 +12,7 @@ public class RPG extends Jogo {
 	}
 
 	@Override
-	protected int getBonus(int score) {
+	protected int getBonus() {
 		return 10;
 	}
 

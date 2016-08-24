@@ -43,7 +43,11 @@ public abstract class Usuario {
 	
 	
 	public void compraJogos(Jogo novoJogo) throws Exception {
-		verificaHaJogo(novoJogo);
+		for (Jogo jogo : meusJogos) {
+			if (jogo.equals(novoJogo)) {
+				throw new Exception("O Usuario ja possui este jogo");
+			}
+		}
 		verificaDinheiro(novoJogo);
 		this.setX2P(this.getX2P() + (int) (15 * novoJogo.getPrecoJogo()));
 		this.setDinheiroCaixa(this.getDinheiroCaixa() - (novoJogo.getPrecoJogo() - getDesconto(novoJogo)));
@@ -51,13 +55,6 @@ public abstract class Usuario {
 	
 	protected abstract double getDesconto(Jogo novoJogo);
 
-
-	private void verificaHaJogo(Jogo novoJogo) throws Exception {
-			if (this.getMeusJogos().contains(novoJogo)) {
-				throw new Exception("O Usuario ja possui este jogo");
-			}
-	}
-	
 	private void verificaDinheiro(Jogo novoJogo) throws Exception {
 		if (this.getDinheiroCaixa() < novoJogo.getPrecoJogo()) {
 			throw new Exception("O Usuario nao possui dinheiro suficiente");
@@ -72,7 +69,9 @@ public abstract class Usuario {
 	
 	
 	public void registraJogada(Jogo nomeDoJogo, int score, boolean zerou) throws Exception {
-		nomeDoJogo.registraJogada(score, zerou);
+		int valor = nomeDoJogo.registraJogada(score, zerou);
+		this.setX2P(this.getX2P() + valor);
+		
 	}
 
 	

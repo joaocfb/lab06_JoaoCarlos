@@ -38,14 +38,14 @@ public class TestesUsuario {
 		assertEquals(100.00, pedro.getDinheiroCaixa(), 0.00001);
 		assertNotEquals(1000, pedro.getX2P());
 	}
-		
+	
 	@Before
 	public void criaJogos() throws Exception {
 		jogo1 = new RPG("Final Fantasy", 200.0);
 		jogo2 = new Luta("Street Fighter", 50.0);
 		jogo3 = new Plataforma("Super Mario World", 30.0);
 	}
-	
+		
 	@Test
 	public void testCompraJogos() throws Exception {
 		try {
@@ -58,14 +58,19 @@ public class TestesUsuario {
 		assertEquals("Veterano", joao.getClass().getSimpleName());
 		assertEquals(340.0, joao.getDinheiroCaixa(), 0.0001);
 		
-		pedro.compraJogos(jogo2);
 		try {
+			pedro.compraJogos(jogo2);
+		} catch (Exception e) {
+			fail("Deveria lancar excecao");
+		}
+		
+		/*try {
 			pedro.compraJogos(jogo2);
 			fail("Deveria lancar excecao");
 		} catch (Exception e) {
 			assertEquals("O Usuario ja possui este jogo", e.getMessage());
-		}
-		assertEquals(500, pedro.getX2P());
+		}*/
+		assertEquals(750, pedro.getX2P());
 		assertEquals("Noob", pedro.getClass().getSimpleName());
 		assertEquals(55.0, pedro.getDinheiroCaixa(), 0.00001);
 	

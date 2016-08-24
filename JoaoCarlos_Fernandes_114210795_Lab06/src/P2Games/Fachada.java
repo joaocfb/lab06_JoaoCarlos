@@ -88,7 +88,9 @@ public class Fachada {
 		Usuario newUsuario = new Veterano(usuario.getNome(), usuario.getLogin(), usuario.getMeusJogos());
 		newUsuario.setDinheiroCaixa(usuario.getDinheiroCaixa()); 
 		newUsuario.setX2P(usuario.getX2P());
-		
+		int indice = this.usuarios.indexOf(usuario);
+		this.usuarios.remove(this.usuarios.get(indice));
+		this.usuarios.add(indice, newUsuario);
 	}
 	
 	
@@ -114,6 +116,7 @@ public class Fachada {
 			throw new Exception("Nao pode haver upgrade do usuario, ele ja e veterano.");
 		}
 	}
+
 	
 
 	/**
